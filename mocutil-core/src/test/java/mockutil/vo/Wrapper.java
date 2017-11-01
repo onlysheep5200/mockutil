@@ -15,5 +15,5 @@ public class Wrapper implements Serializable {
 //    private Integer propertyC;
 
     private List itemsNoGeneric;
-    private List<Item> items;
+    private List<List<Item>> items;
 }

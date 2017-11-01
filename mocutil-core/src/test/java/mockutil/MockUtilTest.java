@@ -2,9 +2,11 @@ package mockutil;
 
 import com.google.common.collect.Lists;
 import mockutil.vo.Wrapper;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.List;
@@ -29,5 +31,20 @@ public class MockUtilTest {
                 }
             }
         }
+        Method[] declaredMethods = MockUtilTest.class.getDeclaredMethods();
+        Method declaredMethod = declaredMethods[0];
+    }
+
+    class BaseClassTest{
+        private int i ;
+    }
+
+    @Test
+    public void testBaseTest(){
+        BaseClassTest classTest = new BaseClassTest();
+        Field[] declaredFields = classTest.getClass().getDeclaredFields();
+        Field declaredField = declaredFields[0];
+        System.out.println(declaredField.getType());
+        Assert.assertTrue(declaredField.getType().equals(int.class));
     }
 }
